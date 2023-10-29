@@ -1,0 +1,19 @@
+public class Solution {
+    // DO NOT MODIFY THE ARGUMENTS WITH "final" PREFIX. IT IS READ ONLY
+    public int[] twoSum(final int[] A, int B) {
+        int n=A.length;
+        Map<Integer,Integer> map=new HashMap<>();
+        int[] result=new int[2];
+        for(int i=1;i<=n;i++){
+            if(map.containsKey(B-A[i])){
+                result[1]=i;
+                result[0]=map.get(B-A[i]);
+                return result;
+            }
+            map.put(A[i],i);
+        }
+        return result;
+    
+    }
+}
+
