@@ -1,0 +1,22 @@
+class Solution {
+    public int majorityElement(int[] nums) {
+        int majorityElement=0;
+        Map<Integer, Integer> map = new HashMap<>();
+        for (int i = 0; i < nums.length; i++) {
+            map.put(nums[i], map.getOrDefault(nums[i], 0) + 1);
+        }
+
+        Set<Integer>keys=map.keySet();
+        Iterator<Integer> keyIterator = keys.iterator();
+        while (keyIterator.hasNext()) {
+            int key = keyIterator.next();
+            if(map.get(key)>nums.length/2){
+                majorityElement=key;
+                break;
+            }
+
+        }
+     
+        return majorityElement;
+    }
+}
