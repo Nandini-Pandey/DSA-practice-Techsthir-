@@ -1,0 +1,33 @@
+class GFG
+{
+    public static boolean pairWiseConsecutive(Stack<Integer> st)
+    {
+        // Your code here
+        Stack<Integer>temp=new Stack<>();
+        boolean flag=true;
+        if(st.size()==1){
+            return true;
+        }
+        while(!st.isEmpty()){
+            if(st.size()%2!=0){
+                int e=st.pop();
+                temp.push(e);
+            }
+            int element1=st.pop();
+            int element2=st.pop();
+            if(Math.abs(element2-element1)!=1){
+                flag=false;
+            }
+            temp.push(element1);
+            temp.push(element2);
+            
+        }
+        while (!temp.isEmpty()) {
+            int element = temp.pop();
+            st.push(element);
+        }
+        return flag;
+        
+       
+	}
+}
